@@ -1,0 +1,70 @@
+---
+
+title: "Análisis y visualización"
+format: html
+------------
+
+```{python}
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+import numpy as np
+
+df = pd.read_excel("DATASET UNIANDES.xlsx")
+
+df = df.drop(columns=[
+    'cedula_alumno','apellido','nombre',
+    'celular','email','email_institucional'
+])
+
+df['aprobado'] = df['aprobado'].str.strip()
+
+df['desercion'] = np.where(
+    (df['retirado'] == 'T') | (df['aprobado'] == 'False'),
+    1, 0
+)
+
+df['faltas_total'] = df[['faltas','faltas2','faltas3','faltas4']].sum(axis=1)
+```
+
+## Distribución de deserción
+
+```{python}
+sns.countplot(x='desercion', data=df)
+plt.title('Distribución de Deserción')
+plt.xlabel('Deserción (0 = No, 1 = Sí)')
+plt.ylabel('Cantidad de estudiantes')
+plt.show()
+```
+
+### Interpretación
+
+Este gráfico muestra la distribución de la deserción estudiantil. Se observa que la mayoría de los estudiantes no desertan, mientras que una menor proporción sí lo hace. Esto permite dimensionar la magnitud del problema dentro del dataset.
+
+## Nota final vs deserción
+
+```{python}
+sns.boxplot(x='desercion', y='NOTA FINAL', data=df)
+plt.title('Nota Final vs Deserción')
+plt.xlabel('Deserción (0 = No, 1 = Sí)')
+plt.ylabel('Nota final')
+plt.show()
+```
+
+### Interpretación
+
+Se observa claramente que los estudiantes que desertan presentan notas significativamente más bajas en comparación con los que no desertan. Esto indica que el bajo rendimiento académico es un factor determinante en la deserción estudiantil.
+
+## Faltas vs deserción
+
+```{python}
+sns.boxplot(x='desercion', y='faltas_total', data=df)
+plt.title('Faltas vs Deserción')
+plt.xlabel('Deserción (0 = No, 1 = Sí)')
+plt.ylabel('Total de faltas')
+plt.show()
+```
+
+### Interpretación
+
+Se evidencia que los estudiantes con mayor número de faltas tienden a desertar más, lo que sugiere que la inasistencia es un factor relevante en el abandono académico.

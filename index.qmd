@@ -1,0 +1,27 @@
+---
+title: "Análisis de la deserción estudiantil"
+format: html
+---
+
+## Contexto
+
+La deserción estudiantil es un problema relevante en la educación superior, ya que afecta la permanencia y el rendimiento académico de los estudiantes.
+
+## Objetivo
+
+Analizar los factores asociados a la deserción mediante técnicas de visualización de datos.
+
+## Preguntas analíticas
+
+- ¿Cuál es la tasa de deserción?
+- ¿Cómo influye la nota final?
+- ¿Cómo influyen las faltas?
+
+## Dataset
+
+Se utilizó un dataset académico que incluye información sobre notas, faltas, estado de aprobación y retiro de los estudiantes.
+
+## Secciones
+
+- [Limpieza de datos](data_cleaning.qmd)
+- [Visualizaciones](visualizations.qmd)
