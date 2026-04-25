@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Deserción estudiantil</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+            background: #f4f6f7;
+        }
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background: #34495e;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        section {
+            padding: 30px;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Deserción Estudiantil</h1>
+    <p>Análisis de factores académicos</p>
+</header>
+
+<nav>
+    <a href="#problema">Problema</a>
+    <a href="#preguntas">Preguntas</a>
+    <a href="#analisis">Análisis</a>
+    <a href="#nested">Modelo</a>
+</nav>
+
+<section id="problema">
+    <div class="card">
+        <h2>Contexto</h2>
+        <p>
+        La deserción estudiantil afecta la permanencia académica. Este proyecto analiza sus causas usando datos.
+        </p>
+    </div>
+</section>
+
+<section id="preguntas">
+    <div class="card">
+        <h2>Preguntas</h2>
+        <ul>
+            <li>¿Cuál es la proporción de deserción?</li>
+            <li>¿Cómo influye la nota?</li>
+            <li>¿Cómo influyen las faltas?</li>
+        </ul>
+    </div>
+</section>
+
+<section id="analisis">
+
+    <div class="card">
+        <h2>Distribución de deserción</h2>
+        <img src="grafico1.png">
+        <p>La mayoría no deserta, pero hay un grupo relevante.</p>
+    </div>
+
+    <div class="card">
+        <h2>Nota final vs deserción</h2>
+        <img src="grafico2.png">
+        <p>Menores notas se relacionan con mayor deserción.</p>
+    </div>
+
+    <div class="card">
+        <h2>Faltas vs deserción</h2>
+        <img src="grafico3.png">
+        <p>Más faltas aumentan la probabilidad de desertar.</p>
+    </div>
+
+</section>
+
+<section id="nested">
+    <div class="card">
+        <h2>Modelo de Munzner</h2>
+        <p><b>Problema:</b> Deserción estudiantil</p>
+        <p><b>Datos:</b> Notas y faltas</p>
+        <p><b>Representación:</b> Gráficos</p>
+        <p><b>Diseño:</b> Visualización clara</p>
+    </div>
+</section>
+
+</body>
+</html>
