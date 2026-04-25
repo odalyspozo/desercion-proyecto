@@ -1,13 +1,46 @@
 ---
-title: "Limpieza y preparación de datos"
+title: "Preparación y Limpieza de Datos"
 format: html
 ---
 
 ## Carga del dataset
 
-```{python}
-import pandas as pd
-import numpy as np
+Se cargó el dataset que contiene información académica de los estudiantes.
 
-df = pd.read_excel("DATASET UNIANDES.xlsx")
-df.head()
+## Exploración inicial
+
+Se analizaron los tipos de datos, valores únicos y distribución de variables para comprender la estructura del dataset.
+
+## Manejo de valores faltantes
+
+Se identificaron valores nulos y se aplicaron estrategias para su tratamiento, como reemplazo o eliminación cuando fue necesario.
+
+## Eliminación de datos personales
+
+Se eliminaron variables sensibles como nombres y correos electrónicos para proteger la privacidad de los estudiantes.
+
+## Limpieza de datos
+
+Se corrigieron inconsistencias en los datos, especialmente en variables categóricas como "aprobado".
+
+Ejemplo:
+- "True " → "True"
+
+## Creación de variables
+
+Se creó la variable **deserción**, definida como:
+
+- 1 → estudiante retirado o no aprobado
+- 0 → estudiante activo o aprobado
+
+## Transformaciones
+
+Se generó la variable **faltas_total**, sumando las faltas de todos los parciales.
+
+## Filtrado de datos
+
+Se seleccionaron únicamente las variables relevantes para el análisis.
+
+## Resultado
+
+El dataset final se encuentra limpio, estructurado y listo para ser utilizado en visualizaciones.

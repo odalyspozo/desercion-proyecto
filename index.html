@@ -1,111 +1,236 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Deserción estudiantil</title>
-    <style>
-        body {
-            font-family: Arial;
-            margin: 0;
-            background: #f4f6f7;
-        }
-        header {
-            background: #2c3e50;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        nav {
-            background: #34495e;
-            padding: 10px;
-            text-align: center;
-        }
-        nav a {
-            color: white;
-            margin: 15px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        section {
-            padding: 30px;
-        }
-        .card {
-            background: white;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        img {
-            max-width: 100%;
-            border-radius: 10px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proyecto: Deserción Estudiantil</title>
+
+<style>
+body {
+    margin:0;
+    font-family:'Segoe UI', sans-serif;
+    background:#eef2f3;
+}
+
+header {
+    background:linear-gradient(135deg,#6a11cb,#2575fc);
+    color:white;
+    text-align:center;
+    padding:40px;
+}
+
+nav {
+    background:#1f2c3a;
+    padding:12px;
+    text-align:center;
+}
+
+nav button {
+    background:none;
+    border:none;
+    color:white;
+    margin:10px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+nav button:hover {
+    color:#00d2ff;
+}
+
+.section {
+    display:none;
+    padding:40px;
+}
+
+.active {
+    display:block;
+}
+
+.card {
+    background:white;
+    padding:25px;
+    margin:25px auto;
+    border-radius:12px;
+    max-width:1100px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.12);
+}
+
+.highlight {
+    background:#e3f2fd;
+    padding:12px;
+    border-left:6px solid #2196f3;
+    margin-top:10px;
+}
+
+.btn {
+    display:inline-block;
+    margin:8px 6px 0 0;
+    padding:10px 18px;
+    background:#2575fc;
+    color:white;
+    border-radius:8px;
+    text-decoration:none;
+}
+
+.btn:hover {
+    background:#6a11cb;
+}
+
+table {
+    border-collapse:collapse;
+    width:100%;
+}
+
+th, td {
+    border:1px solid #ddd;
+    padding:8px;
+    text-align:center;
+}
+
+th {
+    background:#2575fc;
+    color:white;
+}
+</style>
+
+<script>
+function show(id){
+    document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
+}
+</script>
+
 </head>
 
 <body>
 
 <header>
-    <h1>Deserción Estudiantil</h1>
-    <p>Análisis de factores académicos</p>
+<h1>Proyecto: Deserción Estudiantil</h1>
+<p>Visualización de Datos</p>
 </header>
 
 <nav>
-    <a href="#problema">Problema</a>
-    <a href="#preguntas">Preguntas</a>
-    <a href="#analisis">Análisis</a>
-    <a href="#nested">Modelo</a>
+<button onclick="show('modelo')">Modelo</button>
+<button onclick="show('inicio')">Inicio</button>
+<button onclick="show('limpieza')">Limpieza</button>
+<button onclick="show('visual')">Visualizaciones</button>
 </nav>
 
-<section id="problema">
-    <div class="card">
-        <h2>Contexto</h2>
-        <p>
-        La deserción estudiantil afecta la permanencia académica. Este proyecto analiza sus causas usando datos.
-        </p>
-    </div>
+<!-- MODELO -->
+<section id="modelo" class="section active">
+<div class="card">
+
+<h2>Modelo de Munzner</h2>
+
+<p><b>Problema del dominio:</b> Se analiza la deserción estudiantil como el abandono académico en educación superior.</p>
+
+<p><b>Datos y tareas:</b> Se utilizan variables como nota final, faltas, aprobado y retirado para identificar patrones.</p>
+
+<p><b>Representación visual:</b> Se emplean gráficos como boxplots para comparar grupos.</p>
+
+<p><b>Diseño visual:</b> Se organiza la información en forma de narrativa basada en preguntas analíticas.</p>
+
+<div class="highlight">
+El modelo permite estructurar el análisis desde el problema hasta la visualización.
+</div>
+
+<a href="index.qmd" download class="btn">Descargar index.qmd</a>
+<a href="data_cleaning.qmd" download class="btn">Descargar data_cleaning.qmd</a>
+<a href="visualizations.qmd" download class="btn">Descargar visualizations.qmd</a>
+
+</div>
 </section>
 
-<section id="preguntas">
-    <div class="card">
-        <h2>Preguntas</h2>
-        <ul>
-            <li>¿Cuál es la proporción de deserción?</li>
-            <li>¿Cómo influye la nota?</li>
-            <li>¿Cómo influyen las faltas?</li>
-        </ul>
-    </div>
+<!-- INICIO -->
+<section id="inicio" class="section">
+<div class="card">
+
+<h2>Contexto del problema</h2>
+<p>La deserción estudiantil afecta la permanencia académica.</p>
+
+<h2>Motivación</h2>
+<p>Identificar factores permite mejorar estrategias educativas.</p>
+
+<h2>Preguntas analíticas</h2>
+<ul>
+<li>¿Cómo influyen las notas en la deserción?</li>
+<li>¿Cómo influyen las faltas?</li>
+<li>¿Cuál es la proporción de deserción?</li>
+</ul>
+
+<h2>Dataset</h2>
+<p>Datos académicos de estudiantes.</p>
+
+<table>
+<tr><th>Nota</th><th>Faltas</th><th>Deserción</th></tr>
+<tr><td>8.5</td><td>5</td><td>0</td></tr>
+<tr><td>4.2</td><td>20</td><td>1</td></tr>
+<tr><td>7.1</td><td>8</td><td>0</td></tr>
+</table>
+
+<a href="index.qmd" download class="btn">Descargar index.qmd</a>
+<a href="data_cleaning.qmd" download class="btn">Descargar data_cleaning.qmd</a>
+<a href="visualizations.qmd" download class="btn">Descargar visualizations.qmd</a>
+
+</div>
 </section>
 
-<section id="analisis">
+<!-- LIMPIEZA -->
+<section id="limpieza" class="section">
+<div class="card">
 
-    <div class="card">
-        <h2>Distribución de deserción</h2>
-        <img src="grafico1.png">
-        <p>La mayoría no deserta, pero hay un grupo relevante.</p>
-    </div>
+<h2>Preparación de Datos</h2>
 
-    <div class="card">
-        <h2>Nota final vs deserción</h2>
-        <img src="grafico2.png">
-        <p>Menores notas se relacionan con mayor deserción.</p>
-    </div>
+<p>Carga del dataset: se importaron los datos.</p>
+<p>Exploración: se revisaron variables.</p>
+<p>Eliminación: se quitaron datos personales.</p>
+<p>Limpieza: se corrigieron errores.</p>
+<p>Deserción: variable creada.</p>
+<p>Faltas_total: suma de faltas.</p>
 
-    <div class="card">
-        <h2>Faltas vs deserción</h2>
-        <img src="grafico3.png">
-        <p>Más faltas aumentan la probabilidad de desertar.</p>
-    </div>
+<div class="highlight">
+Dataset listo para análisis.
+</div>
 
+<a href="index.qmd" download class="btn">Descargar index.qmd</a>
+<a href="data_cleaning.qmd" download class="btn">Descargar data_cleaning.qmd</a>
+<a href="visualizations.qmd" download class="btn">Descargar visualizations.qmd</a>
+
+</div>
 </section>
 
-<section id="nested">
-    <div class="card">
-        <h2>Modelo de Munzner</h2>
-        <p><b>Problema:</b> Deserción estudiantil</p>
-        <p><b>Datos:</b> Notas y faltas</p>
-        <p><b>Representación:</b> Gráficos</p>
-        <p><b>Diseño:</b> Visualización clara</p>
-    </div>
+<!-- VISUAL -->
+<section id="visual" class="section">
+
+<div class="card">
+<h2>Nota vs Deserción</h2>
+
+<img src="graph01.PNG" style="width:100%;">
+
+<p><b>Interpretación:</b> Menor nota implica mayor deserción.</p>
+</div>
+
+<div class="card">
+<h2>Faltas vs Deserción</h2>
+
+<img src="graph02.PNG" style="width:100%;">
+
+<p><b>Interpretación:</b> Más faltas implican mayor abandono.</p>
+</div>
+
+<div class="card">
+<h2>Proporción de Deserción</h2>
+
+<img src="graph03.PNG" style="width:100%;">
+
+<p><b>Interpretación:</b> Se observa la distribución de estudiantes que desertan.</p>
+</div>
+
+<a href="index.qmd" download class="btn">Descargar index.qmd</a>
+<a href="data_cleaning.qmd" download class="btn">Descargar data_cleaning.qmd</a>
+<a href="visualizations.qmd" download class="btn">Descargar visualizations.qmd</a>
+
 </section>
 
 </body>

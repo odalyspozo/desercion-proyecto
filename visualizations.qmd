@@ -1,76 +1,44 @@
 ---
-title: "Análisis y visualización"
-format:
-  html:
-    theme: cosmo
-    toc: true
+title: "Análisis y Visualizaciones"
+format: html
 ---
 
-```{python}
-import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
-import numpy as np
+## Pregunta 1: ¿Cómo influye la nota final en la deserción?
 
-df = pd.read_excel("DATASET UNIANDES.xlsx")
+Se utilizó un gráfico tipo boxplot para comparar la distribución de notas entre estudiantes que desertan y los que no.
 
-df = df.drop(columns=[
-    'cedula_alumno','apellido','nombre',
-    'celular','email','email_institucional'
-])
+### Interpretación
 
-df['aprobado'] = df['aprobado'].str.strip()
+Los estudiantes que desertan presentan, en promedio, notas más bajas.
 
-df['desercion'] = np.where(
-    (df['retirado'] == 'T') | (df['aprobado'] == 'False'),
-    1, 0
-)
+### Conclusión
 
-df['faltas_total'] = df[['faltas','faltas2','faltas3','faltas4']].sum(axis=1)
-```
-
-# Pregunta 1: ¿Cuál es la proporción de deserción?
-
-```{python}
-sns.countplot(x='desercion', data=df)
-plt.title('Distribución de Deserción')
-plt.show()
-```
-
-## Respuesta
-
-La mayoría de estudiantes no desertan, pero existe un grupo importante que sí lo hace.
+Existe una relación directa entre bajo rendimiento académico y deserción.
 
 ---
 
-# Pregunta 2: ¿Cómo influye la nota final?
+## Pregunta 2: ¿Cómo influyen las faltas en la deserción?
 
-```{python}
-sns.boxplot(x='desercion', y='NOTA FINAL', data=df)
-plt.title('Nota Final vs Deserción')
-plt.show()
-```
+Se utilizó un gráfico tipo boxplot para analizar la relación entre faltas y deserción.
 
-## Respuesta
+### Interpretación
 
-Los estudiantes con menor nota presentan mayor deserción.
+Los estudiantes con mayor número de faltas tienden a desertar más.
 
----
+### Conclusión
 
-# Pregunta 3: ¿Cómo influyen las faltas?
-
-```{python}
-sns.boxplot(x='desercion', y='faltas_total', data=df)
-plt.title('Faltas vs Deserción')
-plt.show()
-```
-
-## Respuesta
-
-Más faltas están asociadas con mayor deserción.
+La asistencia es un factor clave en la permanencia académica.
 
 ---
 
-# Conclusión
+## Pregunta 3: ¿Cuál es la proporción de deserción?
 
-La deserción está relacionada con bajo rendimiento y alta inasistencia.
+Se utilizó un gráfico de barras o circular para mostrar la proporción de estudiantes que desertan frente a los que no.
+
+### Interpretación
+
+Se observa el porcentaje de estudiantes que abandonan sus estudios.
+
+### Conclusión
+
+La deserción representa un problema significativo que requiere atención.
