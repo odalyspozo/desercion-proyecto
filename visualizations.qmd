@@ -1,8 +1,10 @@
 ---
-
 title: "Análisis y visualización"
-format: html
-------------
+format:
+  html:
+    theme: cosmo
+    toc: true
+---
 
 ```{python}
 import pandas as pd
@@ -27,44 +29,48 @@ df['desercion'] = np.where(
 df['faltas_total'] = df[['faltas','faltas2','faltas3','faltas4']].sum(axis=1)
 ```
 
-## Distribución de deserción
+# Pregunta 1: ¿Cuál es la proporción de deserción?
 
 ```{python}
 sns.countplot(x='desercion', data=df)
 plt.title('Distribución de Deserción')
-plt.xlabel('Deserción (0 = No, 1 = Sí)')
-plt.ylabel('Cantidad de estudiantes')
 plt.show()
 ```
 
-### Interpretación
+## Respuesta
 
-Este gráfico muestra la distribución de la deserción estudiantil. Se observa que la mayoría de los estudiantes no desertan, mientras que una menor proporción sí lo hace. Esto permite dimensionar la magnitud del problema dentro del dataset.
+La mayoría de estudiantes no desertan, pero existe un grupo importante que sí lo hace.
 
-## Nota final vs deserción
+---
+
+# Pregunta 2: ¿Cómo influye la nota final?
 
 ```{python}
 sns.boxplot(x='desercion', y='NOTA FINAL', data=df)
 plt.title('Nota Final vs Deserción')
-plt.xlabel('Deserción (0 = No, 1 = Sí)')
-plt.ylabel('Nota final')
 plt.show()
 ```
 
-### Interpretación
+## Respuesta
 
-Se observa claramente que los estudiantes que desertan presentan notas significativamente más bajas en comparación con los que no desertan. Esto indica que el bajo rendimiento académico es un factor determinante en la deserción estudiantil.
+Los estudiantes con menor nota presentan mayor deserción.
 
-## Faltas vs deserción
+---
+
+# Pregunta 3: ¿Cómo influyen las faltas?
 
 ```{python}
 sns.boxplot(x='desercion', y='faltas_total', data=df)
 plt.title('Faltas vs Deserción')
-plt.xlabel('Deserción (0 = No, 1 = Sí)')
-plt.ylabel('Total de faltas')
 plt.show()
 ```
 
-### Interpretación
+## Respuesta
 
-Se evidencia que los estudiantes con mayor número de faltas tienden a desertar más, lo que sugiere que la inasistencia es un factor relevante en el abandono académico.
+Más faltas están asociadas con mayor deserción.
+
+---
+
+# Conclusión
+
+La deserción está relacionada con bajo rendimiento y alta inasistencia.

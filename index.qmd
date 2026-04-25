@@ -3,25 +3,45 @@ title: "Análisis de la deserción estudiantil"
 format: html
 ---
 
-## Contexto
+# Introducción
 
-La deserción estudiantil es un problema relevante en la educación superior, ya que afecta la permanencia y el rendimiento académico de los estudiantes.
+La deserción estudiantil es un problema relevante en la educación superior, ya que afecta tanto el rendimiento académico como la permanencia de los estudiantes en las instituciones.
+
+## Motivación
+
+Analizar los factores asociados a la deserción permite identificar patrones que pueden ayudar a mejorar la retención estudiantil.
 
 ## Objetivo
 
-Analizar los factores asociados a la deserción mediante técnicas de visualización de datos.
+Analizar la deserción estudiantil mediante visualización de datos para identificar factores asociados al abandono académico.
 
 ## Preguntas analíticas
 
-- ¿Cuál es la tasa de deserción?
-- ¿Cómo influye la nota final?
-- ¿Cómo influyen las faltas?
+1. ¿Cuál es la proporción de deserción?
+2. ¿Cómo influye la nota final en la deserción?
+3. ¿Cómo influyen las faltas en la deserción?
 
 ## Dataset
 
-Se utilizó un dataset académico que incluye información sobre notas, faltas, estado de aprobación y retiro de los estudiantes.
+El dataset utilizado contiene información académica de estudiantes, incluyendo notas, faltas, estado de aprobación y retiro.
 
-## Secciones
+## Enlaces
 
 - [Limpieza de datos](data_cleaning.qmd)
 - [Visualizaciones](visualizations.qmd)
+
+---
+
+# Modelo de Munzner
+
+## Nivel 1: Problema
+Analizar la deserción estudiantil.
+
+## Nivel 2: Datos y tareas
+Se utilizan datos académicos para identificar relaciones entre variables como notas y faltas.
+
+## Nivel 3: Representación
+Se utilizan gráficos de barras y boxplots.
+
+## Nivel 4: Diseño
+Las visualizaciones se seleccionan por su claridad para un público general.
