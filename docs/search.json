@@ -1,0 +1,114 @@
+[
+  {
+    "objectID": "visualizations.html",
+    "href": "visualizations.html",
+    "title": "Análisis y visualización",
+    "section": "",
+    "text": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport numpy as np\n\ndf = pd.read_excel(\"DATASET UNIANDES.xlsx\")\n\ndf = df.drop(columns=[\n    'cedula_alumno','apellido','nombre',\n    'celular','email','email_institucional'\n])\n\ndf['aprobado'] = df['aprobado'].str.strip()\n\ndf['desercion'] = np.where(\n    (df['retirado'] == 'T') | (df['aprobado'] == 'False'),\n    1, 0\n)\n\ndf['faltas_total'] = df[['faltas','faltas2','faltas3','faltas4']].sum(axis=1)"
+  },
+  {
+    "objectID": "visualizations.html#respuesta",
+    "href": "visualizations.html#respuesta",
+    "title": "Análisis y visualización",
+    "section": "Respuesta",
+    "text": "Respuesta\nLa mayoría de estudiantes no desertan, pero existe un grupo importante que sí lo hace."
+  },
+  {
+    "objectID": "visualizations.html#respuesta-1",
+    "href": "visualizations.html#respuesta-1",
+    "title": "Análisis y visualización",
+    "section": "Respuesta",
+    "text": "Respuesta\nLos estudiantes con menor nota presentan mayor deserción."
+  },
+  {
+    "objectID": "visualizations.html#respuesta-2",
+    "href": "visualizations.html#respuesta-2",
+    "title": "Análisis y visualización",
+    "section": "Respuesta",
+    "text": "Respuesta\nMás faltas están asociadas con mayor deserción."
+  },
+  {
+    "objectID": "data_cleaning.html",
+    "href": "data_cleaning.html",
+    "title": "Limpieza y preparación de datos",
+    "section": "",
+    "text": "import pandas as pd import numpy as np\ndf = pd.read_excel(“DATASET UNIANDES.xlsx”) df.head()"
+  },
+  {
+    "objectID": "data_cleaning.html#carga-del-dataset",
+    "href": "data_cleaning.html#carga-del-dataset",
+    "title": "Limpieza y preparación de datos",
+    "section": "",
+    "text": "import pandas as pd import numpy as np\ndf = pd.read_excel(“DATASET UNIANDES.xlsx”) df.head()"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Análisis de la deserción estudiantil",
+    "section": "",
+    "text": "La deserción estudiantil es un problema relevante en la educación superior, ya que afecta tanto el rendimiento académico como la permanencia de los estudiantes en las instituciones.\n\n\nAnalizar los factores asociados a la deserción permite identificar patrones que pueden ayudar a mejorar la retención estudiantil.\n\n\n\nAnalizar la deserción estudiantil mediante visualización de datos para identificar factores asociados al abandono académico.\n\n\n\n\n¿Cuál es la proporción de deserción?\n¿Cómo influye la nota final en la deserción?\n¿Cómo influyen las faltas en la deserción?\n\n\n\n\nEl dataset utilizado contiene información académica de estudiantes, incluyendo notas, faltas, estado de aprobación y retiro.\n\n\n\n\nLimpieza de datos\nVisualizaciones"
+  },
+  {
+    "objectID": "index.html#motivación",
+    "href": "index.html#motivación",
+    "title": "Análisis de la deserción estudiantil",
+    "section": "",
+    "text": "Analizar los factores asociados a la deserción permite identificar patrones que pueden ayudar a mejorar la retención estudiantil."
+  },
+  {
+    "objectID": "index.html#objetivo",
+    "href": "index.html#objetivo",
+    "title": "Análisis de la deserción estudiantil",
+    "section": "",
+    "text": "Analizar la deserción estudiantil mediante visualización de datos para identificar factores asociados al abandono académico."
+  },
+  {
+    "objectID": "index.html#preguntas-analíticas",
+    "href": "index.html#preguntas-analíticas",
+    "title": "Análisis de la deserción estudiantil",
+    "section": "",
+    "text": "¿Cuál es la proporción de deserción?\n¿Cómo influye la nota final en la deserción?\n¿Cómo influyen las faltas en la deserción?"
+  },
+  {
+    "objectID": "index.html#dataset",
+    "href": "index.html#dataset",
+    "title": "Análisis de la deserción estudiantil",
+    "section": "",
+    "text": "El dataset utilizado contiene información académica de estudiantes, incluyendo notas, faltas, estado de aprobación y retiro."
+  },
+  {
+    "objectID": "index.html#enlaces",
+    "href": "index.html#enlaces",
+    "title": "Análisis de la deserción estudiantil",
+    "section": "",
+    "text": "Limpieza de datos\nVisualizaciones"
+  },
+  {
+    "objectID": "index.html#nivel-1-problema",
+    "href": "index.html#nivel-1-problema",
+    "title": "Análisis de la deserción estudiantil",
+    "section": "Nivel 1: Problema",
+    "text": "Nivel 1: Problema\nAnalizar la deserción estudiantil."
+  },
+  {
+    "objectID": "index.html#nivel-2-datos-y-tareas",
+    "href": "index.html#nivel-2-datos-y-tareas",
+    "title": "Análisis de la deserción estudiantil",
+    "section": "Nivel 2: Datos y tareas",
+    "text": "Nivel 2: Datos y tareas\nSe utilizan datos académicos para identificar relaciones entre variables como notas y faltas."
+  },
+  {
+    "objectID": "index.html#nivel-3-representación",
+    "href": "index.html#nivel-3-representación",
+    "title": "Análisis de la deserción estudiantil",
+    "section": "Nivel 3: Representación",
+    "text": "Nivel 3: Representación\nSe utilizan gráficos de barras y boxplots."
+  },
+  {
+    "objectID": "index.html#nivel-4-diseño",
+    "href": "index.html#nivel-4-diseño",
+    "title": "Análisis de la deserción estudiantil",
+    "section": "Nivel 4: Diseño",
+    "text": "Nivel 4: Diseño\nLas visualizaciones se seleccionan por su claridad para un público general."
+  }
+]

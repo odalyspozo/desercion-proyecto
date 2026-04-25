@@ -1,0 +1,13 @@
+---
+title: "Limpieza y preparación de datos"
+format: html
+---
+
+## Carga del dataset
+
+```{python}
+import pandas as pd
+import numpy as np
+
+df = pd.read_excel("DATASET UNIANDES.xlsx")
+df.head()

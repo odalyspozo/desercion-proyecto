@@ -1,0 +1,12 @@
+{
+  "hash": "5e2733d0bb5cf8794ce90c2d811b855b",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: \"Análisis y visualización\"\nformat:\n  html:\n    theme: cosmo\n    toc: true\n---\n\n::: {#2fd72abd .cell execution_count=1}\n``` {.python .cell-code}\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport numpy as np\n\ndf = pd.read_excel(\"DATASET UNIANDES.xlsx\")\n\ndf = df.drop(columns=[\n    'cedula_alumno','apellido','nombre',\n    'celular','email','email_institucional'\n])\n\ndf['aprobado'] = df['aprobado'].str.strip()\n\ndf['desercion'] = np.where(\n    (df['retirado'] == 'T') | (df['aprobado'] == 'False'),\n    1, 0\n)\n\ndf['faltas_total'] = df[['faltas','faltas2','faltas3','faltas4']].sum(axis=1)\n```\n:::\n\n\n# Pregunta 1: ¿Cuál es la proporción de deserción?\n\n::: {#d3566a0d .cell execution_count=2}\n``` {.python .cell-code}\nsns.countplot(x='desercion', data=df)\nplt.title('Distribución de Deserción')\nplt.show()\n```\n\n::: {.cell-output .cell-output-display}\n![](visualizations_files/figure-html/cell-3-output-1.png){width=601 height=449}\n:::\n:::\n\n\n## Respuesta\n\nLa mayoría de estudiantes no desertan, pero existe un grupo importante que sí lo hace.\n\n---\n\n# Pregunta 2: ¿Cómo influye la nota final?\n\n::: {#313870d1 .cell execution_count=3}\n``` {.python .cell-code}\nsns.boxplot(x='desercion', y='NOTA FINAL', data=df)\nplt.title('Nota Final vs Deserción')\nplt.show()\n```\n\n::: {.cell-output .cell-output-display}\n![](visualizations_files/figure-html/cell-4-output-1.png){width=585 height=449}\n:::\n:::\n\n\n## Respuesta\n\nLos estudiantes con menor nota presentan mayor deserción.\n\n---\n\n# Pregunta 3: ¿Cómo influyen las faltas?\n\n::: {#59a21420 .cell execution_count=4}\n``` {.python .cell-code}\nsns.boxplot(x='desercion', y='faltas_total', data=df)\nplt.title('Faltas vs Deserción')\nplt.show()\n```\n\n::: {.cell-output .cell-output-display}\n![](visualizations_files/figure-html/cell-5-output-1.png){width=585 height=449}\n:::\n:::\n\n\n## Respuesta\n\nMás faltas están asociadas con mayor deserción.\n\n---\n\n# Conclusión\n\nLa deserción está relacionada con bajo rendimiento y alta inasistencia.\n\n",
+    "supporting": [
+      "visualizations_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

@@ -1,0 +1,76 @@
+---
+title: "Análisis y visualización"
+format:
+  html:
+    theme: cosmo
+    toc: true
+---
+
+```{python}
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+import numpy as np
+
+df = pd.read_excel("DATASET UNIANDES.xlsx")
+
+df = df.drop(columns=[
+    'cedula_alumno','apellido','nombre',
+    'celular','email','email_institucional'
+])
+
+df['aprobado'] = df['aprobado'].str.strip()
+
+df['desercion'] = np.where(
+    (df['retirado'] == 'T') | (df['aprobado'] == 'False'),
+    1, 0
+)
+
+df['faltas_total'] = df[['faltas','faltas2','faltas3','faltas4']].sum(axis=1)
+```
+
+# Pregunta 1: ¿Cuál es la proporción de deserción?
+
+```{python}
+sns.countplot(x='desercion', data=df)
+plt.title('Distribución de Deserción')
+plt.show()
+```
+
+## Respuesta
+
+La mayoría de estudiantes no desertan, pero existe un grupo importante que sí lo hace.
+
+---
+
+# Pregunta 2: ¿Cómo influye la nota final?
+
+```{python}
+sns.boxplot(x='desercion', y='NOTA FINAL', data=df)
+plt.title('Nota Final vs Deserción')
+plt.show()
+```
+
+## Respuesta
+
+Los estudiantes con menor nota presentan mayor deserción.
+
+---
+
+# Pregunta 3: ¿Cómo influyen las faltas?
+
+```{python}
+sns.boxplot(x='desercion', y='faltas_total', data=df)
+plt.title('Faltas vs Deserción')
+plt.show()
+```
+
+## Respuesta
+
+Más faltas están asociadas con mayor deserción.
+
+---
+
+# Conclusión
+
+La deserción está relacionada con bajo rendimiento y alta inasistencia.
